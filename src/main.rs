@@ -86,7 +86,7 @@ fn find_index(
     let mut opened = 0;
 
     loop {
-        let cur = src.chars().nth(index).unwrap();
+        let cur = src.chars().filter(|c| "<>+-.,[]".contains(*c)).nth(index).unwrap();
         if cur == start_symbol {
             opened += 1;
         } else if cur == close_symbol {
